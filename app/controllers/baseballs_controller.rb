@@ -6,6 +6,9 @@ class BaseballsController < ApplicationController
 	end
 
 	def	index
+		@baseball = Baseball.new
+		@baseballs = Baseball.all
+		@user = User.new
 	end
 	
 	def show

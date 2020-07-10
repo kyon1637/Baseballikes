@@ -24,16 +24,16 @@
          	    	<thead>
          	    	</thead>
          	    	<tbody>
-         	    	  <% @baseballs.each do |bb| %>
+         	    	  <% @baseballs.each do |baseball| %>
          	    	    <tr>
          	    	      <td>
-         	    	      <%= attachment_image_tag bb %>
+         	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,60,60, format:'jpeg' %>
          	    	      </td>
          	    	      <td>
-         	    	      <%= bb.user.name %>
+         	    	      <%= baseball.user.name %>
          	    	      </td>
          	    	      <td>
-         	    	      <%= bb.title %>
+         	    	      <%= link_to baseball.title baseball_path(@baseball) %>
          	    	      </td>
          	    	    </tr>
          	    	    <% end %>

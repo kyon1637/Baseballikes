@@ -1,23 +1,9 @@
-<div class="container">
-    <div class="row">
-       <div class="col-xs-3">
-  	        <%= attachment_image_tag @user, :profile_image, :fill, 150, 100, format:'jpeg', fallback: "no_image.jpg" %>
-  	    </div>
-  	    <div class="col-xs-6">   
-             <h3><%= @user.name %></h3>
-             <p><%= @user.introduction %></p>
-             <p><%= @user.like_team %></p>
-        </div>
-        <div class="col-xs-3">
-             <%= link_to"プロフィールを編集",edit_user_path(@user), class: 'btn btn-success' %>
-             <p><%= @user.baseballs.count %></p>
-        </div>
-    </div>
-    
+<%= render 'users/info', user: @user %>
     <div class="row">
          <div class="col-xs-4">
               <%= link_to"投稿",new_baseball_path %>
          </div>
+         
          <div class="col-xs-8">
          	<h2>投稿一覧</h2>
          	    <table class="table">
@@ -40,8 +26,7 @@
          	    	 </tbody>
          	    </table>
         </div>
-    </div>
-</div>         	    	       
+    </div>         	    	       
 
 
 

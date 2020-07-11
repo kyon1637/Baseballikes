@@ -22,3 +22,44 @@
 .new_baseball{
 	display: flex;
 }
+ul{
+	color: white;
+}
+.navbar{
+	background-image: linear-gradient(30deg, red, blue, green, orange);
+}
+
+header{
+	color: white;
+	.navbar-left{
+		span{
+			font-size: 30px;
+			padding-top: 10px;
+		}
+	}	
+}
+.row{
+	margin-top: 60px;
+}
+.navbar-center{
+	margin-left: 60px;
+	color:  white;
+}
+.glyphicon-home{
+	color: white;
+}
+.glyphicon-log-out{
+   color: white;
+}
+.glyphicon-edit{
+	color: white;
+}
+.glyphicon-link{
+	color: white;
+}
+.glyphicon-user{
+	color: white;
+}
+.glyphicon-list-alt{
+	color: white;
+}

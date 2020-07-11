@@ -1,0 +1,37 @@
+<h2>投稿編集</h2>
+
+<%= form_for(@baseball) do |f| %>
+<div class="edit_baseball">
+	<div class="edit_baseball1">
+		<%= f.label :baseball_image, "画像" %>
+	    <%= f.attachment_field :baseball_image %>
+    </div>
+
+    <div class="edit_baseball2">
+      <table>
+  	    <thead>
+  		  <tr>
+  			<th></th>
+  			<th></th>
+  		  </tr>
+  	    </thead>
+  	    <tbody>
+  	      <tr>
+  	        <td><%= f.label :title, "タイトル" %></td>		
+	        <td><%= f.text_field :title,class:"form-control" %></td>
+	      </tr>
+	      <tr>
+	        <td><%= f.label :body, "内容" %></td>
+	        <td><%= f.text_area :body,class:"form-control" %></td>
+	      </tr>
+   	      <tr>
+          </tr>
+        </tbody>
+     </table>
+   </div>
+
+   <div class="edit_baseball3">
+   <%= f.submit "更新する", class: "btn btn-primary" %>
+   </div>
+</div>
+<% end %>

@@ -5,7 +5,6 @@ class BaseballsController < ApplicationController
 
 	def create
 		@baseball = Baseball.new(baseball_params)
-		@baseball.user = current_user
 	    if @baseball.save
 	       redirect_to user_path(current_user)
 	    else
@@ -25,12 +24,23 @@ class BaseballsController < ApplicationController
 	end
 
 	def edit
+		@baseball = Baseball.find(params[:id])
 	end
 
 	def update
-	end
+		@baseball = Baseball.find(params[:id])
+		if  @baseball.update(baseball_params)
+		    redirect_to baseball_path(@baseball.id)
+		else
+			render 'edit'
+		end
+	end		
+		    	
 
 	def destroy
+		@baseball = Baseball.find(params[:id])
+		@baseball.destroy
+		redirect_to baseballs_path
 	end
 
 private

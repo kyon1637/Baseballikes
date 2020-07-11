@@ -33,7 +33,7 @@
          	    	      <%= baseball.user.name %>
          	    	      </td>
          	    	      <td>
-         	    	      <%= link_to baseball.title baseball_path(@baseball) %>
+         	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
          	    	    </tr>
          	    	    <% end %>

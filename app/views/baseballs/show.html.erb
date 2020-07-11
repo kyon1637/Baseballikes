@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+       <div class="col-xs-3">
+  	        <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format:'jpeg', fallback: "no_image.jpg",class: "img-circle" %>
+  	    </div>
+  	    <div class="col-xs-6">   
+             <h3><%= @user.name %></h3>
+             <p><%= @user.introduction %></p>
+             <p><%= @user.like_team %></p>
+        </div>
+        <div class="col-xs-3">
+             <table class="table">
+               <thead>
+               </thead>
+               <tbody>
+                <tr>
+                  <% if @user.id == current_user.id %>
+                  <td style ="border-style: none;"><%= link_to"プロフィールを編集",edit_user_path(@user), class: 'btn btn-info' %></td>
+                  <% end %>
+                </tr>
+                <tr>
+                　<td>投稿数</td>  
+                  <td><%= @user.baseballs.count %></td>
+                </tr>
+              </tbody>
+             </table>     
+        </div>
+    </div>
+    
+    <div class="row">
+         <div class="col-xs-4">
+              <%= link_to"投稿",new_baseball_path %>
+         </div>
+
+         <div class="col-xs-8">
+          <h2>投稿詳細</h2>
+            <table class="table">
+              <thead>
+              </thead>
+              <tbody>
+                <tr>
+                   <td><%= attachment_image_tag @baseball, :baseball_image, :fill,100,100, format:'jpeg' %></td>
+                   <td><%= @baseball.title %></td>
+                   <td><%= @baseball.body %></td>
+                   <% if @user.id == current_user.id %>
+                   <td><%= link_to '編集', edit_baseball_path(@baseball), class: 'btn btn-success' %></td>
+                   <td><%= link_to '削除', @baseball, method: :delete, data: {confirm: '本当に消しますか?' },class: 'btn btn-danger' %></td>
+                   <% end %>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>                
+
+

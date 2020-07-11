@@ -20,6 +20,8 @@ class BaseballsController < ApplicationController
 	end
 	
 	def show
+		@baseball = Baseball.find(params[:id])
+		@user = User.find_by(id: @baseball.user_id)
 	end
 
 	def edit

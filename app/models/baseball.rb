@@ -1,4 +1,6 @@
 class Baseball < ApplicationRecord
 	belongs_to :user
 	attachment :baseball_image
-end
+    validates :title, presence: true
+    validates :body, presence: true
+end    

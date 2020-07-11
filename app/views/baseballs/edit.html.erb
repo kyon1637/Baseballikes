@@ -1,6 +1,7 @@
 <h2>投稿編集</h2>
 
 <%= form_for(@baseball) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
 <div class="edit_baseball">
 	<div class="edit_baseball1">
 		<%= f.label :baseball_image, "画像" %>

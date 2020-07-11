@@ -1,6 +1,7 @@
 <h2>プロフィール編集</h2>
 
 <%= form_for(@user) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
 <div class="edit_user">
   <div class="edit_user1">
   	<%= f.label :profile_image, "画像" %>

@@ -13,9 +13,10 @@ class BaseballsController < ApplicationController
 	end
 
 	def	index
+		@user = User.find_by(id: current_user)
 		@baseball = Baseball.new
-		@baseballs = Baseball.all
-		@user = User.new
+		@baseballs = Baseball.all.order(created_at: :desc)
+		@usernew = User.new
 	end
 	
 	def show

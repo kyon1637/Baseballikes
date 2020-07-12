@@ -1,0 +1,20 @@
+<div class="main-container">  
+　<div class="row">
+  　<h1 class="top-view">Baseballikesにようこそ！</h1>
+        <div class="top-view">
+          <p>
+              このサイトは、プロ野球ファンが集まって交流を深めるサイトです。</br>
+              初めて利用する方はSignUpから新規登録</br>
+              既に登録済みの方はLoginから入力してください。
+          </p>
+        </div>      
+
+      <div class="row">
+        <p><%= link_to 'Sign Up',new_user_registration_path, class: "btn btn-success col-xs-10 col-xs-offset-1 sign_up" %></p>
+      </div>
+
+      <div class="row">
+         <p><%= link_to 'Log in',new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1 sign_in" %></p>
+      </div>
+　</div>
+</div>

@@ -22,11 +22,15 @@
 .new_baseball{
 	display: flex;
 }
+.edit_baseball{
+	display: flex;
+}
 ul{
 	color: red;
 }
 .navbar{
 	background-image: linear-gradient(30deg, red, blue, green, orange);
+	margin-bottom: -20px;
 }
 
 header{
@@ -62,4 +66,35 @@ header{
 }
 .glyphicon-list-alt{
 	color: white;
+}
+.image1 {
+  background-image: url(image1.jpg);
+}
+.image2 {
+  background-image: url(image2.jpg);
+}
+.image3 {
+  background-image: url(image3.jpg);
+}
+.image4 {
+  background-image: url(image4.jpg);
+}
+.image5 {
+  background-image: url(image5.jpg);
+}
+#container{
+    width: 100%;
+	height: 500px;
+	display:relative;
+    margin-top:50px;
+}
+.main-container{
+	background-image: url(image7.jpg);
+    background-size: cover;
+    height: 800px;
+}
+.top-view{
+	color: white;
+	margin-top: 10px;
+	text-align: center;
 }

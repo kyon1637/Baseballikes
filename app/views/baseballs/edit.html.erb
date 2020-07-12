@@ -3,11 +3,11 @@
 <%= form_for(@baseball) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
 <div class="edit_baseball">
-	<div class="edit_baseball1">
-		<%= f.label :baseball_image, "画像" %>
-	    <%= f.attachment_field :baseball_image %>
-    </div>
-
+	<div class="edit_image">
+    <%= attachment_image_tag @baseball, :baseball_image, class: "img-square", fallback: "no_image.jpg", size:"100x100" %>
+  </div>  
+	    <%= f.attachment_field :baseball_image, placeholder: "画像" %>
+   
     <div class="edit_baseball2">
       <table>
   	    <thead>

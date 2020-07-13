@@ -1,10 +1,12 @@
 class BaseballsController < ApplicationController
 	def new
+		@user = current_user
 		@baseball = Baseball.new
 	end
 
 	def create
 		@baseball = Baseball.new(baseball_params)
+		@baseball.user_id = current_user.id
 	    if @baseball.save
 	       redirect_to user_path(current_user)
 	    else

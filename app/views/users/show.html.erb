@@ -1,5 +1,6 @@
-<%= render 'users/info', user: @user %>
+   <div class="container">   
     <div class="row">
+        <%= render 'users/info', user: current_user %>
          <div class="col-xs-4">
               <%= link_to"投稿",new_baseball_path %>
          </div>
@@ -25,8 +26,9 @@
          	    	    <% end %>
          	    	 </tbody>
          	    </table>
-        </div>
-    </div>           	    	       
+         </div>
+    </div> 
+   </div>             	    	       
 
 
 

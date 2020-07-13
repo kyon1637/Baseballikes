@@ -2,7 +2,7 @@
   <h2 class="section-ttl">新規登録</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "layouts/error_messages", model: resource %>
 
   <div class="row form-group form-inline">
      <span class="col-xs-3"><%= f.label :name,'名前' %></span>

@@ -1,17 +1,17 @@
-<div class="container"> 
+<div class="container">    
     <div class="row">
        <%= render 'users/info', user: current_user %>
          <div class="col-xs-4">
               <%= link_to"投稿",new_baseball_path %>
          </div>
-         
+
          <div class="col-xs-8">
-         	<h2>ユーザー一覧</h2>
+         	<h2>フォロワー一覧</h2>
          	    <table class="table">
          	    	<thead>
          	    	</thead>
          	    	<tbody>
-         	    	  <% @users.each do |user| %>
+         	    	  <% @user.followers.each do |user| %>
          	    	    <tr>
          	    	      <td>
          	    	      <%= attachment_image_tag user, :profile_image, :fill,60,60, format:'jpeg',class: "img-circle" %>
@@ -28,4 +28,4 @@
          	    </table>
         </div>
     </div>
-</div>             	    	       
+</div>             	    	

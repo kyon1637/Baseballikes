@@ -26,10 +26,10 @@
                 </tr>
                 <tr>
                   <td>フォロー数</td>
-                  <td><%= link_to current_user.followings.count %></td>
+                  <td><%= link_to user.followings.count,follows_user_path(user) %></td>
                 <tr>
                   <td>フォロワー数</td>
-                  <td><%= link_to current_user.followers.count %></td>
+                  <td><%= link_to user.followers.count,followers_user_path(user) %></td>
                 </tr>    
               </tbody>
              </table>     

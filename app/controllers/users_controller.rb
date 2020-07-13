@@ -11,9 +11,13 @@ class UsersController < ApplicationController
 		@baseballs = @user.baseballs.reverse_order
 	end
 
-	def new
-		@user = User.new
-	end
+    def follows
+        @user = User.find(params[:id])
+    end
+
+    def followers
+        @user = User.find(params[:id])
+    end
 	
 	def edit
 	    @user = User.find(params[:id])

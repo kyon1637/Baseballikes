@@ -29,7 +29,7 @@
 
    <div class="row form-group form-inline">
       <span class="col-xs-3"><%= f.label :liketeam,'好きな球団' %></span>
-         <%= f.select :like_team,User.like_teams.to_a{},class:"form-control"%>
+         <%= f.select :like_team,User.like_teams.keys,class:"form-control"%>
    </div>      
 
   <div class="actions row">

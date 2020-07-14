@@ -14,7 +14,7 @@
          	    	  <% @baseballs.each do |baseball| %>
          	    	    <tr>
          	    	      <td>
-         	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,60,60, format:'jpeg' %>
+         	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
          	    	      </td>
          	    	      <td>
          	    	      <%= baseball.user.name %>
@@ -22,6 +22,8 @@
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
+                          <td>コメント数：
+                          <%= baseball.baseball_comments.count %>
          	    	    </tr>
          	    	    <% end %>
          	    	 </tbody>

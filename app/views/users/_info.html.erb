@@ -14,8 +14,9 @@
                <tbody>
                 <tr>
                   <% if user.id == current_user.id %>
-                  <td style ="border-style: none;"><%= link_to"プロフィールを編集",edit_user_path(user), class: 'btn btn-info' %>
+                  <td style ="border-style: none;"><%= link_to"プロフィールを編集",edit_user_path(user), class: 'btn btn-info' %></td>
                     <% else %>
+                  <td style ="border-style: none;">  
                     <%= render 'relationships/follow_button', user: @user %>
                   </td>
                   <% end %>

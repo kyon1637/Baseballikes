@@ -4,7 +4,8 @@
 <%= render 'layouts/error_messages', model: f.object %>
 <div class="edit_user">
   <div class="edit_user1">
-  	<%= f.label :profile_image, "画像" %>
+  <%= attachment_image_tag @user, :profile_image, class: "img-circle", fallback: "no_image.jpg", size:"100x100" %>
+  <%= f.label :profile_image, "画像" %>
 	<%= f.attachment_field :profile_image %>
   </div>
 

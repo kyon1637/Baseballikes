@@ -10,6 +10,7 @@ class User < ApplicationRecord
     }
   has_many :baseballs, dependent: :destroy
   validates :name, presence: true, length: {minimum: 2, maximum: 20}
+  has_many :baseball_comments, dependent: :destroy
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'

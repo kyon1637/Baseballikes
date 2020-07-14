@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       get :follows, :followers
     end
   end
-  resources :baseballs
+  resources :baseballs do
+    resources :baseball_comments, only: [:create, :destroy]
+  end
   resources :relationships, only: [:create, :destroy]
   root 'homes#top'
   get 'homes/about'

@@ -24,6 +24,8 @@ class BaseballsController < ApplicationController
 	def show
 		@baseball = Baseball.find(params[:id])
 		@user = User.find_by(id: @baseball.user_id)
+		@baseball_comment = BaseballComment.new
+		@baseball_comments = @baseball.baseball_comments
 	end
 
 	def edit
@@ -43,7 +45,7 @@ class BaseballsController < ApplicationController
 	def destroy
 		@baseball = Baseball.find(params[:id])
 		@baseball.destroy
-		redirect_to baseballs_path
+		redirect_to user_path(current_user.id)
 	end
 
 private

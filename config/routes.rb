@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :baseballs do
+    resource :favorites, only: [:create, :destroy]
     resources :baseball_comments, only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]

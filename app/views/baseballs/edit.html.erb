@@ -17,16 +17,18 @@
   		  </tr>
   	    </thead>
   	    <tbody>
-  	      <tr>
-  	        <td><%= f.label :title, "タイトル" %></td>		
+  	    <tr>
+  	      <td><%= f.label :title, "タイトル" %></td>		
 	        <td><%= f.text_field :title,class:"form-control" %></td>
 	      </tr>
 	      <tr>
 	        <td><%= f.label :body, "内容" %></td>
 	        <td><%= f.text_area :body,class:"form-control" %></td>
 	      </tr>
-   	      <tr>
-          </tr>
+   	    <tr>
+          <td><%= f.label :tag_list,"タグ" %></td>
+          <td><%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control" %></td>  
+        </tr>
         </tbody>
      </table>
    </div>

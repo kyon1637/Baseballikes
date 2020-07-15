@@ -21,6 +21,7 @@
                    <td><%= attachment_image_tag @baseball, :baseball_image, :fill,100,100, format:'jpeg' %></td>
                    <td><%= @baseball.title %></td>
                    <td><%= @baseball.body %></td>
+                   <%= render 'baseballs/tag_list', tag_list: @baseball.tag_list %>
                    <% if @user.id == current_user.id %>
                    <td><%= link_to '編集', edit_baseball_path(@baseball), class: 'btn btn-success' %></td>
                    <td><%= link_to '削除', @baseball, method: :delete, data: {confirm: '本当に消しますか?' },class: 'btn btn-danger' %></td>

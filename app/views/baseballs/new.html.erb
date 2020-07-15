@@ -26,6 +26,8 @@
 	        <td><%= f.text_area :body,class:"form-control" %></td>
 	      </tr>
    	      <tr>
+           <td><%= f.label :tag_list,"タグ" %></td>
+           <td><%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control" %>  
           </tr>
         </tbody>
      </table>

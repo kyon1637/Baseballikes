@@ -50,6 +50,6 @@ class BaseballsController < ApplicationController
 
 private
 	def baseball_params
-	    params.require(:baseball).permit(:title, :body, :baseball_image)
-	end     	
+	    params.require(:baseball).permit(:title, :body, :baseball_image, :tag_list)
+	end
 end

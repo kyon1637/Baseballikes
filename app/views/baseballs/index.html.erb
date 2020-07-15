@@ -12,6 +12,7 @@
          	    	</thead>
          	    	<tbody>
          	    	  <% @baseballs.each do |baseball| %>
+                     
          	    	    <tr>
          	    	      <td>
          	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
@@ -24,8 +25,12 @@
          	    	      </td>
                           <td>コメント数：
                           <%= baseball.baseball_comments.count %>
+                          </td>
+                          <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
+                          </td>
          	    	    </tr>
          	    	    <% end %>
+                  
          	    	 </tbody>
          	    </table>
         </div>

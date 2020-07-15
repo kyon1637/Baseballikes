@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+        </tr>  
+    </thead>
+        <% baseball.baseball_comments.each do |baseball_comment| %>
+    <tbody>
+        <tr>
+          <td>
+            <%= attachment_image_tag baseball_comment.user,:profile_image, :fill, 60, 60, format: 'jpeg',fallback: "no_image.jpg",class: "img-circle" %>
+          </td>
+          <td><%= link_to baseball_comment.user.name %></td>
+          <td><%= baseball_comment.user.like_team %></td>
+          <td><%= baseball_comment.comment %></td>
+          <td><%= date_format(baseball_comment.created_at) %></td>
+              <% if baseball_comment.user == current_user %>
+          <td><%= link_to "削除", baseball_baseball_comment_path(baseball,baseball_comment), method: :delete, remote: :true, data: {confirm: '本当に消しますか?' }, class: "btn btn-danger pull-right" %></td>
+              <% end %>
+          </tr>
+    </tbody>
+        <% end %>
+</table>

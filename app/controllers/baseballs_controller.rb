@@ -25,7 +25,7 @@ class BaseballsController < ApplicationController
 		@baseball = Baseball.find(params[:id])
 		@user = User.find_by(id: @baseball.user_id)
 		@baseball_comment = BaseballComment.new
-		@baseball_comments = @baseball.baseball_comments
+		@baseball_comments = @baseball.baseball_comments.order(created_at: :desc)
 	end
 
 	def edit

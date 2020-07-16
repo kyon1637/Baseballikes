@@ -30,9 +30,18 @@ class UsersController < ApplicationController
 	    else
 	        render :edit
 	    end
-	end        	
+	end 
+
+	def search
+	    @user_or_baseball = params[:option]
+	    @how_search = params[:choice]
+        if    @user_or_baseball == "1"
+              @users = User.search(params[:search], @user_or_baseball,@how_search)
+        else	  
+              @baseballs = Baseball.search(params[:search], @user_or_baseball,@how_search)
+        end
+	end       	
 	           	
-	
 private
     def user_params
   	    params.require(:user).permit(:name, :profile_image, :introduction, :like_team)

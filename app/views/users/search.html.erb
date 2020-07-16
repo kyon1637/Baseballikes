@@ -1,0 +1,39 @@
+<% if @user_or_baseball == "1" %>
+   <h1>User</h1>
+    <table>
+        <% @users.each do |user| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= user.name %> </th>
+            </tr>
+        </thead>
+        <% end %>
+    </table>
+ 
+<% elsif @user_or_baseball == "2" %>
+    <h2>Baseball</h2>
+    <table>
+    <% @baseballs.each do |baseball| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= baseball.title %></th>
+           　　　<th><%= baseball.user.name %></th>
+            </tr>
+        </thead>
+    <% end %>
+    </table>
+<% elsif @user_or_baseball == "3" %>
+   <h1>User</h1>
+    <table>
+        <% @users.each do |user| %>
+        <thead>
+            <tr>
+                <th></th>
+                <th><%= user.like_team %> </th>
+            </tr>
+        </thead>
+        <% end %>
+    </table>
+<% end %>

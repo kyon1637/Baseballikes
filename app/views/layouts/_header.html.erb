@@ -9,6 +9,13 @@
           <li><%= link_to ' つながり',users_path,class: 'glyphicon glyphicon-user users' %></li>
           <li><%= link_to ' 見つける',baseballs_path ,class: 'glyphicon glyphicon-list-alt list-alt'%></li>
           <li><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'glyphicon glyphicon-log-out logout' %></li>
+      　  <li class="search-nav">
+            <%= form_with(url: search_path, method: :get, local: true) do |form| %>
+             <%= select_tag "option", options_for_select([["名前","1"],["投稿","2"]]) %>
+             <%= select_tag "choice", options_for_select([["完全一致","1"],["前方一致","2"],["後方一致","3"],["部分一致","4"]]) %>
+             <%= text_field_tag :search, params[:search] %>
+             <%= submit_tag '検索', :name => nil, class: "btn btn-default" %>
+          <% end %></li>
         <% else %>
           <li><%= link_to ' ホーム',root_path,class: 'glyphicon glyphicon-home home' %></li>
           <li><%= link_to ' 特徴',homes_about_path,class: 'glyphicon glyphicon-link about' %></li>

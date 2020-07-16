@@ -9,6 +9,12 @@
          	<h2>ユーザー一覧</h2>
          	    <table class="table">
          	    	<thead>
+                     <tr>   
+                      <th>画像</th>
+                      <th>名前</th>
+                      <th>好きな球団</th>
+                      <th>紹介文</th>
+                     </tr> 
          	    	</thead>
          	    	<tbody>
          	    	  <% @users.each do |user| %>
@@ -19,6 +25,9 @@
          	    	      <td>
          	    	      <%= link_to user.name, user_path(user) %>
          	    	      </td>
+                          <td>
+                          <%= link_to user.like_team %>
+                          </td>
          	    	      <td>
          	    	      <%= user.introduction %>
          	    	      </td>

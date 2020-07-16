@@ -30,5 +30,13 @@ class User < ApplicationRecord
   
   def following?(other_user)
       self.followings.include?(other_user)
-  end           
+  end 
+
+  def User.search(search, user_or_baseball)
+    if    user_or_baseball == "1"
+          User.where(['name LIKE ?', "%#{search}%"])
+    else
+          User.all
+    end           
+  end          
 end

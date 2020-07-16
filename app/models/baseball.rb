@@ -8,4 +8,14 @@ class Baseball < ApplicationRecord
 	end	
     validates :title, presence: true
     validates :body, presence: true
+    acts_as_taggable_on :labels
+    acts_as_taggable
+
+    def Baseball.search(search, user_or_baseball)
+      if user_or_baseball == "2"
+            Baseball.where(['title LIKE ?', "%#{search}%"])
+      else
+            Baseball.all
+      end
+    end
 end    

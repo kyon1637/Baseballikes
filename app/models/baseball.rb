@@ -11,19 +11,11 @@ class Baseball < ApplicationRecord
     acts_as_taggable_on :labels
     acts_as_taggable
 
-    def Baseball.search(search, user_or_baseball, how_search)
+    def Baseball.search(search, user_or_baseball)
       if user_or_baseball == "2"
-        if how_search == "1"
-     Baseball.where(['title LIKE ?', "#{search}"])
-        elsif how_search == "2"
-            Baseball.where(['title LIKE ?', "#{search}%"])
-        elsif how_search == "3"
-            Baseball.where(['title LIKE ?', "%#{search}"])
-        elsif how_search == "4"
             Baseball.where(['title LIKE ?', "%#{search}%"])
-        else
+      else
             Baseball.all
-        end
       end
     end
 end    

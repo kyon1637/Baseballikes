@@ -3,6 +3,7 @@
 		<nav class="nav nav navbar-nav navbar-left">
 			<span>Baseballikes</span>
 		</nav>
+    <nav>
       <ul class="nav navbar-nav navbar-center">
         <% if user_signed_in? %>
           <li><%= link_to ' ホーム',user_path(current_user),class: 'glyphicon glyphicon-home home' %></li>
@@ -12,7 +13,6 @@
       　  <li class="search-nav">
             <%= form_with(url: search_path, method: :get, local: true) do |form| %>
              <%= select_tag "option", options_for_select([["名前","1"],["投稿","2"]]) %>
-             <%= select_tag "choice", options_for_select([["完全一致","1"],["前方一致","2"],["後方一致","3"],["部分一致","4"]]) %>
              <%= text_field_tag :search, params[:search] %>
              <%= submit_tag '検索', :name => nil, class: "btn btn-default" %>
           <% end %></li>
@@ -23,5 +23,6 @@
           <li><%= link_to ' login', new_user_session_path ,class: 'glyphicon glyphicon-log-out'%></li>
         <% end %>
       </ul>
+    </nav>  
   </div>
 </header>	

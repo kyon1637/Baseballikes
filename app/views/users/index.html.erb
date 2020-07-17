@@ -1,11 +1,28 @@
 <div class="container"> 
-    <div class="row">
-       <%= render 'users/info', user: current_user %>
-         <div class="col-xs-4">
-              <%= link_to"投稿",new_baseball_path %>
-         </div>
-         
-         <div class="col-xs-8">
+    <%= render 'users/info', user: current_user %>
+      <div class="row">
+        <div class="col-xs-3">
+         <h2>メニュー</h2>
+           <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+             <tr>
+               <td><%= link_to"投稿",new_baseball_path(current_user) %></td>
+             </tr>
+             <tr>
+               <td><%= link_to"フォロー",follows_user_path(current_user) %></td>
+             </tr>
+             <tr>  
+               <td><%= link_to"フォロワー",followers_user_path(current_user) %></td>
+             </tr>
+             <tr>  
+              <td><%= link_to"いいね",baseball_favorites_path(current_user),class: "glyphicon glyphicon-thumbs-up" %></td>
+             </tr>
+            </tbody>
+          </table>
+        </div>   
+        <div class="col-xs-8">
          	<h2>ユーザー一覧</h2>
          	    <table class="table">
          	    	<thead>
@@ -26,7 +43,7 @@
          	    	      <%= link_to user.name, user_path(user) %>
          	    	      </td>
                           <td>
-                          <%= link_to user.like_team %>
+                          <%= user.like_team %>
                           </td>
          	    	      <td>
          	    	      <%= user.introduction %>
@@ -36,5 +53,5 @@
          	    	 </tbody>
          	    </table>
         </div>
-    </div>
+      </div>
 </div>             	    	       

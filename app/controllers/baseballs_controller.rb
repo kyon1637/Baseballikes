@@ -19,11 +19,15 @@ class BaseballsController < ApplicationController
 		@baseball = Baseball.new
 		@baseballs = Baseball.all.order(created_at: :desc)
 		@usernew = User.new
+		if params[:tag_name]
+		   @baseballs = Baseball.tagged_with("#{params[:tag_name]}")
+		end   
 	end
 	
 	def show
 		@baseball = Baseball.find(params[:id])
 		@user = User.find_by(id: @baseball.user_id)
+		@favorite = Favorite.new
 		@baseball_comment = BaseballComment.new
 		@baseball_comments = @baseball.baseball_comments.order(created_at: :desc)
 	end

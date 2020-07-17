@@ -1,14 +1,18 @@
    <div class="container">   
-    <div class="row">
-        <%= render 'users/info', user: @user %>
-         <div class="col-xs-4">
-              <%= link_to"投稿",new_baseball_path %>
-         
-        </div>    
-         <div class="col-xs-8">
+    <%= render 'users/info', user: @user %>
+     <div class="row">
+　　　　 <%= render 'users/sidebar', user: @user %>
+        <div class="col-xs-8">
          	<h2><%= @user.name %>さんの投稿一覧</h2>
          	    <table class="table">
          	    	<thead>
+                    <tr>
+                       <th>画像</th>
+                       <th>名前</th>
+                       <th>タイトル</th>
+                       <th>コメント</th>
+                       <th>タグ</th>
+                     </tr> 
          	    	</thead>
          	    	<tbody>
          	    	  <% @baseballs.each do |baseball| %>
@@ -22,12 +26,17 @@
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
+                          <td>コメント数：
+                          <%= baseball.baseball_comments.count %>
+                          </td>
+                          <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
+                          </td>
          	    	    </tr>
          	    	    <% end %>
          	    	 </tbody>
          	    </table>
-         </div>
-    </div> 
+        </div>
+     </div>   
    </div>             	    	       
 
 

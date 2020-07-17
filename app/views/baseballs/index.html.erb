@@ -1,10 +1,7 @@
   <div class="container">  
-    <div class="row">    
-        <%= render 'users/info', user: current_user %>
-         <div class="col-xs-4">
-              <%= link_to"投稿",new_baseball_path %>
-         </div>
-         
+    <%= render 'users/info', user: current_user %>
+    　<div class="row">
+        <%= render 'users/sidebar', user: current_user %>
         <div class="col-xs-8">
          	<h2>投稿一覧</h2>
          	    <table class="table">
@@ -15,6 +12,7 @@
                        <th>タイトル</th>
                        <th>コメント</th>
                        <th>タグ</th>
+                     </tr>  
            	    	</thead>
          	    	<tbody>
          	    	  <% @baseballs.each do |baseball| %>
@@ -40,5 +38,5 @@
          	    	 </tbody>
          	    </table>
         </div>
-    </div>
+      </div>
   </div>           	    	       

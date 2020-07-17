@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {minimum: 2, maximum: 20}
   has_many :baseball_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_baseballs, through: :favoritres, source: :baseball
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -38,5 +39,9 @@ class User < ApplicationRecord
     else
           User.all
     end           
-  end          
+  end
+
+  def already_favorited?(baseball)
+      self.favorites.exists?(baseball_id: baseball.id)
+  end              
 end

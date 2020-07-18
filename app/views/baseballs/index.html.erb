@@ -16,7 +16,6 @@
            	    	</thead>
          	    	<tbody>
          	    	  <% @baseballs.each do |baseball| %>
-                     
          	    	    <tr>
          	    	      <td>
          	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
@@ -34,9 +33,9 @@
                           </td>
          	    	    </tr>
          	    	    <% end %>
-                  
          	    	 </tbody>
-         	    </table>
+                <%= paginate @baseballs %>  
+         	    </table> 
         </div>
       </div>
   </div>           	    	       

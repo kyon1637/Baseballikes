@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	def index
-		@users = User.all.order(created_at: :desc)
+		@users = User.all.page(params[:page]).per(7)
 		@user = User.new
 		@baseball = Baseball.new
 	end	
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@baseball = Baseball.find_by(id: params[:id])
 		@baseball = Baseball.new
-		@baseballs = @user.baseballs.reverse_order
+		@baseballs = @user.baseballs.page(params[:page]).per(7)
 	end
 
     def follows

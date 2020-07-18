@@ -1,41 +1,18 @@
-<h2>プロフィール編集</h2>
-
-<%= form_for(@user) do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-<div class="edit_user">
-  <div class="edit_user1">
-  <%= attachment_image_tag @user, :profile_image, class: "img-circle", fallback: "no_image.jpg", size:"100x100" %>
-  <%= f.label :profile_image, "画像" %>
-	<%= f.attachment_field :profile_image %>
-  </div>
-
-  <div class="edit-user2">
-  <table>
-  	<thead>
-  		<tr>
-  			<th></th>
-  			<th></th>
-  		</tr>
-  	</thead>
-  	<tbody>
-  	    <tr>
-  	        <td><%= f.label :name, "名前" %></td>		
-	        <td><%= f.text_field :name,class:"form-control" %></td>
-	    </tr>
-	    <tr>
-	        <td><%= f.label :introduction, "自己紹介" %></td>
-	        <td><%= f.text_area :introduction,class:"form-control" %></td>
-	    </tr>
-   	    <tr>
-            <td><%= f.label :like_team, "好きな球団" %></td>
-            <td><%= f.select :like_team,User.like_teams.keys,class:"form-control"%></td>
-        </tr>
-    </tbody>
-   </table>
-   </div>          
-
-   <div class="edit-user3">
-	<%= f.submit "更新する", class: "btn btn-primary" %>
-   </div>
-</div>
-<% end %>
+<div class="new_baseball">
+　　<h2>プロフィール編集</h2>
+　　　　<%= form_for(@user) do |f| %>
+　　　　<%= render 'layouts/error_messages', model: f.object %>
+　　　　<div class="new_baseball1">
+  　　　　<%= attachment_image_tag @user, :profile_image, class: "img-circle", fallback: "no_image.jpg", size:"100x100" %>
+  　　　　<%= f.label :profile_image, "画像" %>
+	　　　　<%= f.attachment_field :profile_image %>
+　  	     <%= f.label :name, "名前" %>
+	       <%= f.text_field :name,class:"form-control" %>
+	       <%= f.label :introduction, "自己紹介" %>
+	       <%= f.text_area :introduction,class:"form-control" %>
+	       <%= f.label :like_team, "好きな球団" %>
+         <%= f.select :like_team,User.like_teams.keys,class:"form-control"%>
+	       <%= f.submit "更新する", class: "btn btn-primary" %>
+       </div>
+       <% end %>
+</div>       

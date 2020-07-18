@@ -2,6 +2,7 @@
 　　<h2 class="section-ttl">ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= render "layouts/error_messages", model: resource %>
   <div class="row form-group form-inline">
     <span class="col-xs-3"><%= f.label :email,'メールアドレス' %></span>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>

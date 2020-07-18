@@ -20,7 +20,11 @@
 	display: flex;
 }
 .new_baseball{
-	display: flex;
+	text-align: -webkit-center;
+	padding: 10px;
+}
+.new_baseball1{
+	margin: 0 auto;
 }
 .edit_baseball{
 	display: flex;
@@ -95,6 +99,7 @@ h1{
 	height: 500px;
 	display:relative;
 }
+
 .main-container{
 	background-image: url(image7.jpg);
     background-size: cover;
@@ -122,4 +127,16 @@ h1{
 .search-nav{
 	color: black;
 	margin-top: 10px;
+}
+.pagination>li>a {          
+  border: none;     
+  color: #696969;
+  border-radius: 15px;  
+}
+.pagination>.active>a {     
+  background: #93c9ff;     
+  border-radius: 15px;
+}
+.pagination>li>a:hover {        
+  border-radius: 15px;   
 }

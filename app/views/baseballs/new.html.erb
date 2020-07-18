@@ -1,40 +1,17 @@
-<h2>新規投稿</h2>
-
-<%= form_for(@baseball) do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
 <div class="new_baseball">
-	<div class="new_baseball1">
-		<%= f.label :baseball_image, "画像" %>
-	    <%= f.attachment_field :baseball_image %>
+   <h2>新規投稿</h2>
+    <%= form_for(@baseball) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="new_baseball1">
+		    <%= f.label :baseball_image, "画像" %>
+	      <%= f.attachment_field :baseball_image %>
+  	    <%= f.label :title, "タイトル" %>	
+	      <%= f.text_field :title,class:"form-control" %>
+	      <%= f.label :body, "内容" %>
+	      <%= f.text_area :body,class:"form-control" %>
+	      <%= f.label :tag_list,"タグを,区切りで入力" %>
+        <%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control", placeholder:"例 aa,aa" %> 
+        <%= f.submit "投稿する", class: "btn btn-primary" %>
     </div>
-
-    <div class="new_baseball2">
-      <table>
-  	    <thead>
-  		  <tr>
-  			<th></th>
-  			<th></th>
-  		  </tr>
-  	    </thead>
-  	    <tbody>
-  	      <tr>
-  	        <td><%= f.label :title, "タイトル" %></td>		
-	        <td><%= f.text_field :title,class:"form-control" %></td>
-	      </tr>
-	      <tr>
-	        <td><%= f.label :body, "内容" %></td>
-	        <td><%= f.text_area :body,class:"form-control" %></td>
-	      </tr>
-   	      <tr>
-           <td><%= f.label :tag_list,"タグ" %></td>
-           <td><%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control" %>  
-          </tr>
-        </tbody>
-     </table>
-   </div>
-
-   <div class="new_baseball3">
-   <%= f.submit "投稿する", class: "btn btn-primary" %>
-   </div>
-</div>
-<% end %>          
+    <% end %>       
+</div>      

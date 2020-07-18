@@ -1,40 +1,17 @@
-<h2>投稿編集</h2>
-
-<%= form_for(@baseball) do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-<div class="edit_baseball">
-	<div class="edit_image">
-    <%= attachment_image_tag @baseball, :baseball_image, class: "img-square", fallback: "no_image.jpg", size:"100x100" %>
-  </div>  
-	    <%= f.attachment_field :baseball_image, placeholder: "画像" %>
-   
-    <div class="edit_baseball1">
-      <table>
-  	    <thead>
-  		  <tr>
-  			<th></th>
-  			<th></th>
-  		  </tr>
-  	    </thead>
-  	    <tbody>
-  	    <tr>
-  	      <td><%= f.label :title, "タイトル" %></td>		
-	        <td><%= f.text_field :title,class:"form-control" %></td>
-	      </tr>
-	      <tr>
-	        <td><%= f.label :body, "内容" %></td>
-	        <td><%= f.text_area :body,class:"form-control" %></td>
-	      </tr>
-   	    <tr>
-          <td><%= f.label :tag_list,"タグ" %></td>
-          <td><%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control" %></td>  
-        </tr>
-        </tbody>
-     </table>
-   </div>
-
-   <div class="edit_baseball2">
-   <%= f.submit "更新する", class: "btn btn-primary" %>
-   </div>
-</div>
-<% end %>
+<div class="new_baseball">
+   <h2>投稿編集</h2>
+     <%= form_for(@baseball) do |f| %>
+     <%= render 'layouts/error_messages', model: f.object %>
+     <div class="new_baseball1">
+          <%= attachment_image_tag @baseball, :baseball_image, class: "img-square", fallback: "no_image.jpg", size:"100x100" %>
+	        <%= f.attachment_field :baseball_image, placeholder: "画像" %>
+  	      <%= f.label :title, "タイトル" %>		
+	        <%= f.text_field :title,class:"form-control" %>
+	        <%= f.label :body, "内容" %>
+	        <%= f.text_area :body,class:"form-control" %>
+          <%= f.label :tag_list,"タグを,区切りで入力" %>
+          <%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control", placeholder: "例aa,aa" %>
+          <%= f.submit "更新する", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+</div>      

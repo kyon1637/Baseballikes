@@ -1,3 +1,4 @@
+  <div class="info_view"> 
     <div class="row">
         <div class="col-xs-4">
   	        <%= attachment_image_tag user, :profile_image, :fill, 120, 120, format:'jpeg', fallback: "no_image.jpg",class: "img-circle" %>
@@ -28,6 +29,7 @@
                 <tr>
                   <td>フォロー数</td>
                   <td><%= link_to user.followings.count,follows_user_path(user) %></td>
+                </tr>  
                 <tr>
                   <td>フォロワー数</td>
                   <td><%= link_to user.followers.count,followers_user_path(user) %></td>
@@ -35,4 +37,5 @@
               </tbody>
              </table>     
         </div>
+       </div> 
     </div>

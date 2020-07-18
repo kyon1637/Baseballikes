@@ -1,0 +1,23 @@
+<div class="col-xs-3">
+ <h2>メニュー</h2>
+ <table class="table">
+   <thead>
+   </thead>
+   <tbody>
+   	<% if @user.id == current_user.id %>
+    <tr>
+      <td><%= link_to"投稿",new_baseball_path(user) %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><%= link_to"フォロー",follows_user_path(user) %></td>
+    </tr>
+    <tr>  
+      <td><%= link_to"フォロワー",followers_user_path(user) %></td>
+    </tr>
+    <tr>  
+      <td><%= link_to"いいね",baseball_favorites_path(user),class: "glyphicon glyphicon-thumbs-up" %></td>
+    </tr>
+   </tbody>
+ </table>
+</div>             

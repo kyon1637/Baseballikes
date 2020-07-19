@@ -3,7 +3,7 @@ class Baseball < ApplicationRecord
 	attachment :baseball_image
 	has_many :baseball_comments, dependent: :destroy
 	has_many :favorites, dependent: :destroy
-	has_many :favorited_users, through: :favorites, source: :user
+	has_many :favoriting_users, through: :favorites, source: :user
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end	

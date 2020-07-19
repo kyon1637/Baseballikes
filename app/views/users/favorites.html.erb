@@ -1,0 +1,42 @@
+<div class="container">    
+    <%= render 'users/info', user: @user %>
+      <div class="row">
+     <%= render 'users/sidebar', user: @user %> 
+        <div class="col-xs-8">
+         	<h2><%= @user.name %>さんのいいね一覧</h2>
+         	    <table class="table">
+         	    	<thead>
+                     <tr>
+                       <th>画像</th>
+                       <th>名前</th>
+                       <th>タイトル</th>
+                       <th>コメント</th>
+                       <th>タグ</th>
+                     </tr>  
+         	    	</thead>
+         	    	<tbody>
+         	    	  <% @favorites.each do |favorite| %>
+                  <% baseball = Baseball.find_by(id: favorite.baseball_id) %>
+                  <% user = User.find_by(id: baseball.user_id) %>
+         	    	    <tr>
+         	    	      <td>
+         	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
+         	    	      </td>
+         	    	      <td>
+         	    	      <%= baseball.user.name %>
+         	    	      </td>
+         	    	      <td>
+         	    	      <%= link_to(baseball.title, "/baseballs/#{baseball.id}") %>
+         	    	      </td>
+                          <td>コメント数:
+                          <%= baseball.baseball_comments.count %>
+                          </td>
+                          <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
+                          </td>
+         	    	    </tr>
+         	    	    <% end %>
+         	    	 </tbody>
+         	    </table>
+        </div>
+      </div>
+</div>             	    	

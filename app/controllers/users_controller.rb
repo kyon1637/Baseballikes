@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 		@baseballs = @user.baseballs.page(params[:page]).per(7)
 	end
 
+	def favorites
+		@user = User.find_by(id: params[:id])
+		@favorites = Favorite.where(user_id: @user.id)
+	end	
+
     def follows
         @user = User.find(params[:id])
     end

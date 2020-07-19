@@ -17,10 +17,10 @@ class BaseballsController < ApplicationController
 	def	index
 		@user = User.find_by(id: current_user)
 		@baseball = Baseball.new
-		@baseballs = Baseball.all.page(params[:page]).per(7)
+		@baseballs = Baseball.page(params[:page]).per(7)
 		@usernew = User.new
 		if params[:tag_name]
-		   @baseballs = Baseball.tagged_with("#{params[:tag_name]}")
+		@baseballs = Baseball.page(params[:page]).per(7).tagged_with("#{params[:tag_name]}")
 		end   
 	end
 	

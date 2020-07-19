@@ -1,8 +1,8 @@
 <div class="new_baseball">
    <h2>投稿編集</h2>
      <%= form_for(@baseball) do |f| %>
-     <%= render 'layouts/error_messages', model: f.object %>
      <div class="new_baseball1">
+       <%= render 'layouts/error_messages', model: f.object %>
           <%= attachment_image_tag @baseball, :baseball_image, class: "img-square", fallback: "no_image.jpg", size:"100x100" %>
 	        <%= f.attachment_field :baseball_image, placeholder: "画像" %>
   	      <%= f.label :title, "タイトル" %>		

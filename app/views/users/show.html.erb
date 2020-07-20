@@ -1,6 +1,62 @@
    <div class="container">
    <div class="common_view">   
-    <%= render 'users/info', user: @user %>
+    <div class="info_view"> 
+    <div class="row">
+        <div class="col-xs-4">
+            <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format:'jpeg', fallback: "no_image.jpg",class: "img-circle" %>
+        </div>
+        <div class="col-xs-5">   
+             <h3><%= @user.name %></h3>
+             <p><%= @user.introduction %></p>
+             <p><%= @user.like_team %></p>
+        </div>
+        <div class="col-xs-3">
+             <table class="table">
+               <thead>
+               </thead>
+               <tbody>
+                <tr>
+                  <% if @user.id == current_user.id %>
+                  <td style ="border-style: none;"><%= link_to"プロフィールを編集",edit_user_path(@user), class: 'btn btn-info' %></td>
+                </tr>  
+                    <% else %>
+                <tr>
+                    <td style ="border-style: none;">  
+                    <%= render 'relationships/follow_button', user: @user %>
+                  </td>
+                </tr>
+                <tr>
+                  <% if @isRoom == true %>
+                    <td><%= link_to "チャットへ", room_path(@roomId) %></td>
+                </tr>    
+                  <% else %>
+                <tr>  
+                    <td><%= form_for @room do |f| %>
+                     <%= fields_for @entry do |e| %>
+                      <%= e.hidden_field :user_id, :value=> @user.id %>
+                     <% end %>
+                     <%= f.submit "チャットを始める" %>
+                    <% end %></td>
+                  <% end %>
+                  <% end %>
+                </tr>
+                <tr>
+                　<td>投稿数</td>  
+                  <td><%= @user.baseballs.count %></td>
+                </tr>
+                <tr>
+                  <td>フォロー数</td>
+                  <td><%= link_to @user.followings.count,follows_user_path(@user) %></td>
+                </tr>  
+                <tr>
+                  <td>フォロワー数</td>
+                  <td><%= link_to @user.followers.count,followers_user_path(@user) %></td>
+                </tr>    
+              </tbody>
+             </table>     
+        </div>
+       </div> 
+    </div>
      <div class="row">
 　　　　 <%= render 'users/sidebar', user: @user %>
         <div class="col-xs-8">

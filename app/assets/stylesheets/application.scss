@@ -15,6 +15,7 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 .edit_user{
 	display: flex;
@@ -139,4 +140,7 @@ h1{
 }
 .pagination>li>a:hover {        
   border-radius: 15px;   
+}
+.alert-warning{
+	color: red;
 }

@@ -8,16 +8,28 @@
             </thead>
             <tbody>
              <tr>
-               <td><%= link_to"投稿",new_baseball_path(current_user) %></td>
+              <td><%= link_to new_baseball_path(current_user), method: :get do %>
+               <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i>投稿
+                  <% end %>
+              </td>
              </tr>
              <tr>
-               <td><%= link_to"フォロー",follows_user_path(current_user) %></td>
+              <td><%= link_to follows_user_path(current_user), method: :get do %>
+               <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>フォロー
+                  <% end %>
+              </td>
              </tr>
              <tr>  
-               <td><%= link_to"フォロワー",followers_user_path(current_user) %></td>
+              <td><%= link_to followers_user_path(current_user), method: :get do %>
+               <i class="fa fa-users fa-2x" aria-hidden="true"></i>フォロワー
+                  <% end %>
+              </td>
              </tr>
              <tr>  
-              <td><%= link_to"いいね",favorites_user_path(current_user),class: "glyphicon glyphicon-thumbs-up" %></td>
+              <td><%= link_to favorites_user_path(current_user), method: :get do %>
+               <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>いいね一覧
+                  <% end %>
+              <td>
              </tr>
             </tbody>
           </table>

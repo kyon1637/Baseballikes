@@ -1,11 +1,12 @@
 <div class="new_baseball">
 　　<h2>プロフィール編集</h2>
 　　　　<%= form_for(@user) do |f| %>
-　　　　<%= render 'layouts/error_messages', model: f.object %>
 　　　　<div class="new_baseball1">
-  　　　　<%= attachment_image_tag @user, :profile_image, class: "img-circle", fallback: "no_image.jpg", size:"100x100" %>
+	   <%= render 'layouts/error_messages', model: f.object %>
+	   <div class="view_box">
+	   	 <input type="file" class="file">
   　　　　<%= f.label :profile_image, "画像" %>
-	　　　　<%= f.attachment_field :profile_image %>
+       </div> 
 　  	     <%= f.label :name, "名前" %>
 	       <%= f.text_field :name,class:"form-control" %>
 	       <%= f.label :introduction, "自己紹介" %>

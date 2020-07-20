@@ -1,9 +1,9 @@
-  <div class="container">  
-    <%= render 'users/info', user: current_user %>
-    　<div class="row">
-        <%= render 'users/sidebar', user: current_user %>
-        <div class="col-xs-6">
-         	<h2>投稿一覧</h2>
+<div class="container">    
+    <%= render 'users/info', user: @user %>
+      <div class="row">
+     <%= render 'users/sidebar', user: @user %> 
+        <div class="col-xs-8">
+         	<h2><%= @user.name %>さんのいいね一覧</h2>
          	    <table class="table">
          	    	<thead>
                      <tr>
@@ -13,9 +13,11 @@
                        <th>コメント</th>
                        <th>タグ</th>
                      </tr>  
-           	    	</thead>
+         	    	</thead>
          	    	<tbody>
-         	    	  <% @baseballs.each do |baseball| %>
+         	    	  <% @favorites.each do |favorite| %>
+                  <% baseball = Baseball.find_by(id: favorite.baseball_id) %>
+                  <% user = User.find_by(id: baseball.user_id) %>
          	    	    <tr>
          	    	      <td>
          	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
@@ -24,9 +26,9 @@
          	    	      <%= baseball.user.name %>
          	    	      </td>
          	    	      <td>
-         	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
+         	    	      <%= link_to(baseball.title, "/baseballs/#{baseball.id}") %>
          	    	      </td>
-                          <td>コメント数：
+                          <td>コメント数:
                           <%= baseball.baseball_comments.count %>
                           </td>
                           <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
@@ -34,16 +36,7 @@
          	    	    </tr>
          	    	    <% end %>
          	    	 </tbody>
-                <%= paginate @baseballs %>  
-         	    </table> 
+         	    </table>
         </div>
-        <div class="col-xs-3">
-        <h2>タグ一覧</h2>
-        <% @tags.each do |tag| %>
-        <span class="button btn btn-success">
-         <%= link_to tag, baseballs_path(tag_name: tag.name),:style=>"color:white;" %>
-        </span> 
-        <% end %>
-        </div> 
       </div>
-  </div>           	    	       
+</div>             	    	

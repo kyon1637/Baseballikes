@@ -20,6 +20,7 @@ class BaseballsController < ApplicationController
 		@baseballs = Baseball.page(params[:page]).per(7)
 		@usernew = User.new
 		@tags = Baseball.tag_counts_on(:tags).order('count DESC')
+		@all_ranks = Baseball.find(Favorite.group(:baseball_id).order('count(baseball_id) desc').limit(5).pluck(:baseball_id))
 		if params[:tag_name]
 		@baseballs = Baseball.page(params[:page]).per(7).tagged_with("#{params[:tag_name]}")
 		end   

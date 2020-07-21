@@ -19,4 +19,9 @@ class Baseball < ApplicationRecord
             Baseball.all
       end
     end
+
+    def self.create_all_ranks 
+    　　Baseball.find(Favorite.group(:baseball_id).order('count(baseball_id) desc').limit(3).pluck(:baseball_id))
+  　end
+  end
 end    

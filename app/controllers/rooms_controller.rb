@@ -17,5 +17,16 @@ class RoomsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
+  def index
+    @currentEntries = current_user.entries
+    myRoomIds = []
+
+  @currentEntries.each do |entry|
+     myRoomIds << entry.room_id
+  end
+
+  @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?',@user.id)
+  end
 end
 

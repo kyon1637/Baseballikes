@@ -21,7 +21,7 @@
          	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
          	    	      </td>
          	    	      <td>
-         	    	      <%= baseball.user.name %>
+         	    	      <%= link_to baseball.user.name %>
          	    	      </td>
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
@@ -44,6 +44,31 @@
          <%= link_to tag, baseballs_path(tag_name: tag.name),:style=>"color:white;" %>
         </span> 
         <% end %>
+        <h2>いいねランキング</h2>
+        <table class="table">
+          <thead>
+           <tr>
+            <th></th>
+            <th>名前</th>
+            <th>タイトル</th>
+           </tr>  
+          </thead>
+          <tbody>
+            <% @all_ranks.each.with_index(1) do |baseball,i| %>
+           <tr>
+            <td>
+              第<%= i %>位
+              <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color: blue;"></i>
+              <%= baseball.favorites.count %>
+            </td>  
+            <td> 
+              <%= link_to baseball.user.name %>
+            </td>
+            <td>
+            <%= link_to baseball.title %>
+            </td>  
+           </tr> 
+            <% end %>
         </div> 
       </div>
   </div>           	    	       

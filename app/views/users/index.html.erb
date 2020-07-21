@@ -8,7 +8,7 @@
             </thead>
             <tbody>
              <tr>
-              <td><%= link_to new_baseball_path(current_user), method: :get do %>
+              <td><%= link_to new_baseball_path, method: :get do %>
                <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i>投稿
                   <% end %>
               </td>
@@ -29,10 +29,21 @@
               <td><%= link_to favorites_user_path(current_user), method: :get do %>
                <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>いいね一覧
                   <% end %>
-              <td>
+              </td>
+             </tr>
+             <tr>
+              <td><%= link_to rooms_path,method: :get do %>
+               <i class="fa fa-comments fa-2x" aria-hidden="true"></i>チャット一覧
+                  <% end %>
+              </td>
              </tr>
             </tbody>
           </table>
+          <footer class="footer">
+            <div class='content'>
+             <p class="text-muted">CopyRight Baseballikes.inc</p>
+            </div>
+          </footer>
         </div>   
         <div class="col-xs-8">
          	<h2>ユーザー一覧</h2>

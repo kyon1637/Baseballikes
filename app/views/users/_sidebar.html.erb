@@ -30,12 +30,15 @@
           <% end %>
       </td>
     </tr>
+    <% if @user.id == current_user.id %>
     <tr>
       <td><%= link_to rooms_path,method: :get do %>
-        チャット一覧
+        <i class="fa fa-comments fa-2x" aria-hidden="true"></i>チャット一覧
         <% end %>
       </td>
-    </tr>    
+    </tr>
+    <% end %>    
    </tbody>
  </table>
-</div>             
+<%= render 'layouts/footer' %>
+</div>        

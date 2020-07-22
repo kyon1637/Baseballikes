@@ -1,5 +1,5 @@
 class BaseballCommentsController < ApplicationController
-
+   before_action :authenticate_user!
 	def create
 		@baseball = Baseball.find(params[:baseball_id])
 		@baseball_comment = @baseball.baseball_comments.new(baseball_comment_params)

@@ -1,4 +1,6 @@
 class BaseballsController < ApplicationController
+	before_action :authenticate_user!
+	before_action :correct_user, only: [:edit, :update]
 	def new
 		@user = current_user
 		@baseball = Baseball.new
@@ -58,4 +60,11 @@ private
 	def baseball_params
 	    params.require(:baseball).permit(:title, :body, :baseball_image, :tag_list)
 	end
+
+    def correct_user
+    	@baseball = current_user.baseballs.find_by(id: params[:id])
+       unless @baseball
+       	redirect_to user_path(current_user.id)
+       end
+    end
 end

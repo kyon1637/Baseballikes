@@ -1,4 +1,9 @@
    <div class="container">
+   <div class="notifications">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: key) %>
+    <% end %>
+   </div>   
    <div class="common_view">   
     <div class="info_view"> 
     <div class="row">
@@ -41,7 +46,7 @@
                   <% end %>
                 </tr>
                 <tr>
-                　<td>投稿数</td>  
+                  <td>投稿数</td>  
                   <td><%= @user.baseballs.count %></td>
                 </tr>
                 <tr>
@@ -58,7 +63,7 @@
        </div> 
     </div>
      <div class="row">
-　　　　 <%= render 'users/sidebar', user: @user %>
+     <%= render 'users/sidebar', user: @user %>
         <div class="col-xs-8">
          	<h2><%= @user.name %>さんの投稿一覧</h2>
          	    <table class="table">

@@ -8,19 +8,42 @@
    </thead>
    <tbody>
     <tr>
-      <td><%= link_to"投稿",new_baseball_path(current_user) %></td>
+      <td><%= link_to new_baseball_path, method: :get do %>
+        <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i>投稿
+          <% end %>
+      </td>
     </tr>
     <tr>
-      <td><%= link_to"フォロー",follows_user_path(current_user) %></td>
+      <td><%= link_to follows_user_path(current_user), method: :get do %>
+        <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>フォロー
+          <% end %>
+      </td>
     </tr>
     <tr>  
-      <td><%= link_to"フォロワー",followers_user_path(current_user) %></td>
+      <td><%= link_to followers_user_path(current_user), method: :get do %>
+        <i class="fa fa-users fa-2x" aria-hidden="true"></i>フォロワー
+          <% end %>
+      </td>
     </tr>
     <tr>  
-      <td><%= link_to"いいね",favorites_user_path(current_user),class: "glyphicon glyphicon-thumbs-up" %></td>
+      <td><%= link_to favorites_user_path(current_user), method: :get do %>
+        <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>いいね一覧
+           <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= link_to rooms_path,method: :get do %>
+        <i class="fa fa-comments fa-2x" aria-hidden="true"></i>チャット一覧
+           <% end %>
+      </td>
     </tr>
    </tbody>
  </table>
+ <footer class="footer">
+    <div class='content'>
+      <p class="text-muted">CopyRight Baseballikes.inc</p>
+    </div>
+ </footer>
 </div>             
     <% if @user_or_baseball == "1" %>
     <div class="col-xs-8">
@@ -28,6 +51,12 @@
          　　　<p>全<%= @users.count %>件</p>
          	    <table class="table">
          	    	<thead>
+                  <tr>   
+                    <th>画像</th>
+                    <th>名前</th>
+                    <th>好きな球団</th>
+                    <th>紹介文</th>
+                  </tr> 
          	    	</thead>
          	    	<tbody>
          	    	  <% @users.each do |user| %>
@@ -38,6 +67,9 @@
          	    	      <td>
          	    	      <%= link_to user.name, user_path(user) %>
          	    	      </td>
+                      <td>
+                      <%= user.like_team %>
+                      </td>
          	    	      <td>
          	    	      <%= user.introduction %>
          	    	      </td>
@@ -53,6 +85,13 @@
      <p class="comment">全<%= @baseballs.count %>件</p>
         <table class="table">
          	 <thead>
+            　　<tr>
+                  <th>画像</th>
+                  <th>名前</th>
+                  <th>タイトル</th>
+                  <th>コメント</th>
+                  <th>タグ</th>
+              　</tr>
          	 </thead>
          	 <tbody>
          	    <% @baseballs.each do |baseball| %>
@@ -61,17 +100,17 @@
          	    	      <%= attachment_image_tag baseball, :baseball_image, :fill,80,80, format:'jpeg' %>
          	    	      </td>
          	    	      <td>
-         	    	      <%= baseball.user.name %>
+         	    	      <%= link_to baseball.user.name, user_path(baseball.user_id) %>
          	    	      </td>
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
-                          <td>コメント数：
-                          <%= baseball.baseball_comments.count %>
-                          </td>
-                          <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
-                          </td>
-         	        </tr>
+                      <td>コメント数：
+                      <%= baseball.baseball_comments.count %>
+                      </td>
+                      <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
+                      </td>
+         	      </tr>
          	    <% end %>
          	 </tbody>
         </table>

@@ -60,7 +60,7 @@
               <% @anotherEntries.each do |e| %>
               <tr>
               	<td><%= attachment_image_tag e.user, :profile_image, :fill,80,80, format:'jpeg',fallback: "no_image.jpg",class: "img-circle" %></td>
-                <td><%= link_to e.user.name %></td>
+                <td><%= link_to e.user.name, user_path(e.user_id) %></td>
                 <td><%= e.user.like_team %></td>
                 <td><%= e.user.introduction %></td>
                 <td><%= link_to "チャットする",room_path(e.room.id) %></td>   

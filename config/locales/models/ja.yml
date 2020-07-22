@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+      models:
+        user: ユーザー
+        baseball: ベースボール
+      attributes:
+        user:
+          name: 名前
+          email: メールアドレス
+          password: パスワード
+        baseball:
+          title: タイトル
+          body: 感想
+
+

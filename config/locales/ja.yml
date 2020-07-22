@@ -1,21 +1,4 @@
-ja:
-  activerecord:
-    models:
-      user: ユーザー
-    attributes:
-      user:
-        name: 名前
-        email: メールアドレス
-      
-ja:
-  activerecord:
-     models:
-     baseball: 投稿
-     attributes:
-       baseball:
-            title: タイトル
-            body: 感想 
-
+    
 ja:
   datetime:
     distance_in_words:

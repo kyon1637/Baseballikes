@@ -8,31 +8,31 @@
    </thead>
    <tbody>
     <tr>
-      <td><%= link_to new_baseball_path, method: :get do %>
+      <td><%= link_to new_baseball_path, class: 'btn btn-primary btn-block', method: :get do %>
         <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i>投稿
           <% end %>
       </td>
     </tr>
     <tr>
-      <td><%= link_to follows_user_path(current_user), method: :get do %>
+      <td><%= link_to follows_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
         <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>フォロー
           <% end %>
       </td>
     </tr>
     <tr>  
-      <td><%= link_to followers_user_path(current_user), method: :get do %>
+      <td><%= link_to followers_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
         <i class="fa fa-users fa-2x" aria-hidden="true"></i>フォロワー
           <% end %>
       </td>
     </tr>
     <tr>  
-      <td><%= link_to favorites_user_path(current_user), method: :get do %>
+      <td><%= link_to favorites_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
         <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>いいね一覧
            <% end %>
       </td>
     </tr>
     <tr>
-      <td><%= link_to rooms_path,method: :get do %>
+      <td><%= link_to rooms_path, class: 'btn btn-primary btn-block', method: :get do %>
         <i class="fa fa-comments fa-2x" aria-hidden="true"></i>チャット一覧
            <% end %>
       </td>
@@ -48,7 +48,7 @@
     <% if @user_or_baseball == "1" %>
     <div class="col-xs-8">
          	<h2>検索結果</h2>
-         　　　<p>全<%= @users.count %>件</p>
+            <p>全<%= @users.count %>件</p>
          	    <table class="table">
          	    	<thead>
                   <tr>   
@@ -85,13 +85,13 @@
      <p class="comment">全<%= @baseballs.count %>件</p>
         <table class="table">
          	 <thead>
-            　　<tr>
+                <tr>
                   <th>画像</th>
                   <th>名前</th>
                   <th>タイトル</th>
                   <th>コメント</th>
                   <th>タグ</th>
-              　</tr>
+                </tr>
          	 </thead>
          	 <tbody>
          	    <% @baseballs.each do |baseball| %>
@@ -105,8 +105,10 @@
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
-                      <td>コメント数：
+                      <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true" style="color: orange;"></i>
                       <%= baseball.baseball_comments.count %>
+                          <i class="fa fa-thumbs-up fa-2x" aria-hidden="true" style="color: blue;"></i>
+                      <%= baseball.favorites.count %>
                       </td>
                       <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
                       </td>

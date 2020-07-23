@@ -8,31 +8,31 @@
             </thead>
             <tbody>
              <tr>
-              <td><%= link_to new_baseball_path, method: :get do %>
+              <td><%= link_to new_baseball_path, class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i>投稿
                   <% end %>
               </td>
              </tr>
              <tr>
-              <td><%= link_to follows_user_path(current_user), method: :get do %>
+              <td><%= link_to follows_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>フォロー
                   <% end %>
               </td>
              </tr>
              <tr>  
-              <td><%= link_to followers_user_path(current_user), method: :get do %>
+              <td><%= link_to followers_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-users fa-2x" aria-hidden="true"></i>フォロワー
                   <% end %>
               </td>
              </tr>
              <tr>  
-              <td><%= link_to favorites_user_path(current_user), method: :get do %>
+              <td><%= link_to favorites_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>いいね一覧
                   <% end %>
               </td>
              </tr>
              <tr>
-              <td><%= link_to rooms_path,method: :get do %>
+              <td><%= link_to rooms_path, class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-comments fa-2x" aria-hidden="true"></i>チャット一覧
                   <% end %>
               </td>
@@ -73,9 +73,9 @@
          	    	      </td>
          	    	    </tr>
          	    	    <% end %>
-         	    	 </tbody>
-                 <%= paginate @users %>    
+         	    	 </tbody>  
          	    </table>
+               <%= paginate @users %>  
         </div>
       </div>
 </div>             	    	       

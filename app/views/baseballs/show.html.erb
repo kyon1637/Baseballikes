@@ -9,7 +9,7 @@
         <%= render 'users/sidebar', user: @user %>
          <div class="col-xs-8">
           <h2 class="comment">投稿詳細</h2>
-            <p class="comment">コメント数：<%= @baseball.baseball_comments.count %>件</p>
+          <i class="fa fa-commenting-o fa-2x" aria-hidden="true" style="color: orange;"></i><%= @baseball.baseball_comments.count %>件
              <div class="comment">   
                <div id="favorites_buttons_<%= @baseball.id %>">
                 <%= render partial: 'favorites/favorite', locals: { baseball: @baseball} %>
@@ -17,16 +17,29 @@
              </div>
             <table class="table">
               <thead>
+                <tr>
+                  <th>画像</th>
+                  <th>名前</th>
+                  <th>タイトル</th>
+                  <th>感想</th>
+                </tr>  
               </thead>
               <tbody>
                 <tr>
                    <td><%= attachment_image_tag @baseball, :baseball_image, :fill,100,100, format:'jpeg' %></td>
+                   <td><%= link_to @baseball.user.name, user_path(@baseball.user_id) %></td>
                    <td><%= @baseball.title %></td>
                    <td><%= @baseball.body %></td>
                    <%= render 'baseballs/tag_list', tag_list: @baseball.tag_list %>
                    <% if @user.id == current_user.id %>
-                   <td><%= link_to '編集', edit_baseball_path(@baseball), class: 'btn btn-success' %></td>
-                   <td><%= link_to '削除', @baseball, method: :delete, data: {confirm: '本当に消しますか?' },class: 'btn btn-danger' %></td>
+                   <td><%= link_to edit_baseball_path(@baseball), class: 'btn btn-success', method: :get do %>
+                       <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>編集
+                       <% end %>  
+                   </td>
+                   <td><%= link_to @baseball, method: :delete, data: {confirm: '本当に消しますか?' },class: 'btn btn-danger' do %>
+                       <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>削除
+                       <% end %>
+                   </td>
                    <% end %>
                 </tr>
               </tbody>

@@ -10,7 +10,7 @@
        <% if @messages.present? %>
          <% @messages.each do |m| %>
           <strong><%= m.content %></strong>
-           <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
+           <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong><%= date_format(m.created_at) %></small>
       <hr>
          <% end %>
       <% else %>

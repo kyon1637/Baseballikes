@@ -22,7 +22,10 @@
                <tbody>
                 <tr>
                   <% if @user.id == current_user.id %>
-                  <td style ="border-style: none;"><%= link_to"プロフィールを編集",edit_user_path(@user), class: 'btn btn-info' %></td>
+                  <td style ="border-style: none;"><%= link_to edit_user_path(@user), class: 'btn btn-info', method: :get do %>
+                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>プロフィール編集
+                  <% end %>  
+                  </td>
                 </tr>  
                     <% else %>
                 <tr>
@@ -32,7 +35,10 @@
                 </tr>
                 <tr>
                   <% if @isRoom == true %>
-                    <td><%= link_to "チャットへ", room_path(@roomId) %></td>
+                    <td><%= link_to room_path(@roomId), :class => 'btn btn-info btn-block', method: :get do %>
+                        <i class="fa fa-commenting-o fa-2x" aria-hidden="true"></i>チャットする
+                        <% end %>
+                    </td>
                 </tr>    
                   <% else %>
                 <tr>  
@@ -40,8 +46,10 @@
                      <%= fields_for @entry do |e| %>
                       <%= e.hidden_field :user_id, :value=> @user.id %>
                      <% end %>
-                     <%= f.submit "チャットを始める" %>
+                     <%= button_tag type: 'submit', class: 'btn btn-info btn-block' do %>
+                     <i class="fa fa-comment-o fa-2x" aria-hidden="true"></i>チャットを始める
                     <% end %></td>
+                  <% end %>
                   <% end %>
                   <% end %>
                 </tr>
@@ -88,16 +96,18 @@
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
-                          <td>コメント数：
+                          <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true" style="color: orange;"></i>
                           <%= baseball.baseball_comments.count %>
+                              <i class="fa fa-thumbs-up fa-2x" aria-hidden="true" style="color: blue;"></i>
+                          <%= baseball.favorites.count %>
                           </td>
                           <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
                           </td>
          	    	    </tr>
          	    	    <% end %>
-         	    	 </tbody>
-                   <%= paginate @baseballs %>  
+         	    	 </tbody>  
          	    </table>
+               <%= paginate @baseballs %>
         </div>
      </div>
    </div>     

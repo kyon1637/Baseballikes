@@ -1,4 +1,6 @@
 class BaseballsController < ApplicationController
+	before_action :authenticate_user!
+	before_action :correct_user, only: [:edit, :update]
 	def new
 		@user = current_user
 		@baseball = Baseball.new
@@ -8,7 +10,7 @@ class BaseballsController < ApplicationController
 		@baseball = Baseball.new(baseball_params)
 		@baseball.user_id = current_user.id
 	    if @baseball.save
-	       redirect_to user_path(current_user)
+	       redirect_to user_path(current_user), notice: '投稿が完了しました'
 	    else
 	       render 'new'
 	    end      	
@@ -41,7 +43,7 @@ class BaseballsController < ApplicationController
 	def update
 		@baseball = Baseball.find(params[:id])
 		if  @baseball.update(baseball_params)
-		    redirect_to baseball_path(@baseball.id)
+		    redirect_to baseball_path(@baseball.id), notice: '投稿を編集しました'
 		else
 			render 'edit'
 		end
@@ -58,4 +60,11 @@ private
 	def baseball_params
 	    params.require(:baseball).permit(:title, :body, :baseball_image, :tag_list)
 	end
+
+    def correct_user
+    	@baseball = current_user.baseballs.find_by(id: params[:id])
+       unless @baseball
+       	redirect_to user_path(current_user.id)
+       end
+    end
 end

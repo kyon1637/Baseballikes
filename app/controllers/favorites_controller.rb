@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-
+    before_action :authenticate_user!
 	def create
 		@baseball = Baseball.find(params[:baseball_id])
 		@favorite = @baseball.favorites.new(user_id: current_user.id)

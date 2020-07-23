@@ -1,6 +1,11 @@
-<div class="main-container">  
-　<div class="row">
-  　<h1 class="top-view">Baseballikesにようこそ！</h1>
+<div class="main-container">
+  <div class="logout_message">
+  <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "flash flash_#{key}") %>
+    <% end %> 
+  </div>  
+  <div class="row">
+    <h1 class="top-view">Baseballikesにようこそ！</h1>
         <div class="top-view">
           <p class="top-text">
               このサイトは、プロ野球ファンが集まって交流を深めるサイトです。</br>
@@ -16,5 +21,5 @@
       <div class="row">
          <p><%= link_to 'Log in',new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1 sign_in" %></p>
       </div>
-　</div>
+  </div>
 </div>

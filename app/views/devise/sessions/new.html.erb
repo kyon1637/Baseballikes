@@ -1,8 +1,11 @@
 <section class="inner">
-　　<h2 class="section-ttl">ログイン</h2>
+<h2 class="section-ttl">ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <%= render "layouts/error_messages", model: resource %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+<% end %>  
   <div class="row form-group form-inline">
     <span class="col-xs-3"><%= f.label :email,'メールアドレス' %></span>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
@@ -17,7 +20,7 @@
     <div class="row form-group form-inline">
        <%= f.check_box :remember_me %>
       <span class="col-xs-3">
-        <%= f.label :remember_me %>
+        <%= f.label :remember_me,'ログイン情報を記憶する' %>
       </span>  
     </div>
   <% end %>

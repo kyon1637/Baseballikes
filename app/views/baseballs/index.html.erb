@@ -26,8 +26,10 @@
          	    	      <td>
          	    	      <%= link_to baseball.title, baseball_path(baseball.id) %>
          	    	      </td>
-                          <td>コメント数：
+                          <td><i class="fa fa-commenting-o fa-2x" aria-hidden="true" style="color: orange;"></i>
                           <%= baseball.baseball_comments.count %>
+                              <i class="fa fa-thumbs-up fa-2x" aria-hidden="true" style="color: blue;"></i>
+                          <%= baseball.favorites.count %>
                           </td>
                           <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
                           </td>
@@ -58,7 +60,7 @@
            <tr>
             <td>
               第<%= i %>位
-              <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color: blue;"></i>
+              <i class="fa fa-thumbs-up fa-2x" aria-hidden="true" style="color: blue;"></i>
               <%= baseball.favorites.count %>
             </td>  
             <td> 

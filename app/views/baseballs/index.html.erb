@@ -12,7 +12,7 @@
                        <th>タイトル</th>
                        <th>コメント</th>
                        <th>タグ</th>
-                     </tr>  
+                     </tr>
            	    	</thead>
          	    	<tbody>
          	    	  <% @baseballs.each do |baseball| %>
@@ -34,17 +34,17 @@
                           <td><%= render 'baseballs/tag_list', tag_list: baseball.tag_list %>
                           </td>
          	    	    </tr>
-         	    	    <% end %> 
+         	    	    <% end %>
          	    	 </tbody>
          	    </table>
-              <%= paginate @baseballs %> 
+              <%= paginate @baseballs %>
         </div>
         <div class="col-xs-3">
         <h2>タグ一覧</h2>
         <% @tags.each do |tag| %>
         <span class="button btn btn-success">
          <%= link_to tag, baseballs_path(tag_name: tag.name),:style=>"color:white;" %>
-        </span> 
+        </span>
         <% end %>
         <h2>いいねランキング</h2>
         <table class="table">
@@ -53,7 +53,7 @@
             <th></th>
             <th>名前</th>
             <th>タイトル</th>
-           </tr>  
+           </tr>
           </thead>
           <tbody>
             <% @all_ranks.each.with_index(1) do |baseball,i| %>
@@ -62,15 +62,15 @@
               第<%= i %>位
               <i class="fa fa-thumbs-up fa-2x" aria-hidden="true" style="color: blue;"></i>
               <%= baseball.favorites.count %>
-            </td>  
-            <td> 
+            </td>
+            <td>
               <%= link_to baseball.user.name, user_path(baseball.user_id) %>
             </td>
             <td>
             <%= link_to baseball.title, baseball_path(baseball.id) %>
-            </td>  
-           </tr> 
+            </td>
+           </tr>
             <% end %>
-        </div> 
+        </div>
       </div>
-  </div>           	    	       
+  </div>

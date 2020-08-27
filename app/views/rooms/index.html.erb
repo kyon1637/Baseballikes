@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container">
 <%= render 'users/info', user: current_user %>
   <div class="row">
         <div class="col-xs-3">
@@ -19,13 +19,13 @@
                   <% end %>
               </td>
              </tr>
-             <tr>  
+             <tr>
               <td><%= link_to followers_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-users fa-2x" aria-hidden="true"></i>フォロワー
                   <% end %>
               </td>
              </tr>
-             <tr>  
+             <tr>
               <td><%= link_to favorites_user_path(current_user), class: 'btn btn-primary btn-block', method: :get do %>
                <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>いいね一覧
                   <% end %>
@@ -44,19 +44,19 @@
              <p class="text-muted">CopyRight Baseballikes.inc</p>
             </div>
           </footer>
-        </div>   
+        </div>
       <div class="col-xs-7">
         <h2>チャット一覧</h2>
           <table class="table">
           	<thead>
-             <tr>   
+             <tr>
                 <th>画像</th>
                 <th>名前</th>
                 <th>好きな球団</th>
                 <th>紹介文</th>
-             </tr> 
+             </tr>
          	</thead>
-         	<tbody>		
+         	<tbody>
               <% @anotherEntries.each do |e| %>
               <tr>
               	<td><%= attachment_image_tag e.user, :profile_image, :fill,80,80, format:'jpeg',fallback: "no_image.jpg",class: "img-circle" %></td>
@@ -66,9 +66,9 @@
                 <td><%= link_to room_path(e.room.id), method: :get do %>
                 	<i class="fa fa-commenting-o fa-2x" aria-hidden="true"></i>チャットする
                 	<% end %>
-                </td>   
-              </tr>      
+                </td>
+              </tr>
              <% end %>
       </div>
   </div>
-</div>        
+</div>

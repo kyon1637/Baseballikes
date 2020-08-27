@@ -13,7 +13,7 @@ class BaseballsController < ApplicationController
 	       redirect_to user_path(current_user), notice: '投稿が完了しました'
 	    else
 	       render 'new'
-	    end      	
+	    end
 	end
 
 	def	index
@@ -25,9 +25,9 @@ class BaseballsController < ApplicationController
 		@all_ranks = Baseball.find(Favorite.group(:baseball_id).order('count(baseball_id) desc').limit(5).pluck(:baseball_id))
 		if params[:tag_name]
 		@baseballs = Baseball.page(params[:page]).per(7).tagged_with("#{params[:tag_name]}")
-		end   
+		end
 	end
-	
+
 	def show
 		@baseball = Baseball.find(params[:id])
 		@user = User.find_by(id: @baseball.user_id)
@@ -47,8 +47,7 @@ class BaseballsController < ApplicationController
 		else
 			render 'edit'
 		end
-	end		
-		    	
+	end
 
 	def destroy
 		@baseball = Baseball.find(params[:id])

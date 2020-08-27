@@ -6,7 +6,7 @@ class Baseball < ApplicationRecord
 	has_many :favoriting_users, through: :favorites, source: :user
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
-	end	
+	end
     validates :title, presence: true
     validates :body, presence: true
     acts_as_taggable_on :labels
@@ -20,8 +20,8 @@ class Baseball < ApplicationRecord
       end
     end
 
-    def self.create_all_ranks 
+    def self.create_all_ranks
     　　Baseball.find(Favorite.group(:baseball_id).order('count(baseball_id) desc').limit(3).pluck(:baseball_id))
   　end
   end
-end    
+end

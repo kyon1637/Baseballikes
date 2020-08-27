@@ -5,7 +5,7 @@
        <%= render 'layouts/error_messages', model: f.object %>
           <%= attachment_image_tag @baseball, :baseball_image, class: "img-square", fallback: "no_image.jpg", size:"100x100" %>
 	        <%= f.attachment_field :baseball_image, placeholder: "画像" %>
-  	      <%= f.label :title, "タイトル" %>		
+  	      <%= f.label :title, "タイトル" %>	
 	        <%= f.text_field :title,class:"form-control" %>
 	        <%= f.label :body, "内容" %>
 	        <%= f.text_area :body,class:"form-control" %>
@@ -14,4 +14,4 @@
           <%= f.submit "更新する", class: "btn btn-primary" %>
       </div>
       <% end %>
-</div>      
+</div>

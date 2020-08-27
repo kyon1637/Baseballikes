@@ -6,14 +6,14 @@ class BaseballCommentsController < ApplicationController
         @baseball_comment.user_id = current_user.id
 		@baseball_comment.save
 	end
-	
+
 	def destroy
 		@baseball_comment = BaseballComment.find(params[:id])
 		@baseball_comment.destroy
-	end	
+	end
 
 	private
 	def baseball_comment_params
 		params.require(:baseball_comment).permit(:comment, :baseball_id, :user_id)
-	end	
+	end
 end

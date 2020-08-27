@@ -5,7 +5,7 @@
 <%= render "layouts/error_messages", model: resource %>
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-<% end %>  
+<% end %>
   <div class="row form-group form-inline">
     <span class="col-xs-3"><%= f.label :email,'メールアドレス' %></span>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
@@ -21,7 +21,7 @@
        <%= f.check_box :remember_me %>
       <span class="col-xs-3">
         <%= f.label :remember_me,'ログイン情報を記憶する' %>
-      </span>  
+      </span>
     </div>
   <% end %>
 

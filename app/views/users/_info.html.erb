@@ -1,9 +1,9 @@
-  <div class="row"> 
+  <div class="row">
     <div class="info_view">
         <div class="col-xs-4">
   	        <%= attachment_image_tag user, :profile_image, :fill, 120, 120, format:'jpeg', fallback: "no_image.jpg",class: "img-circle" %>
   	    </div>
-  	    <div class="col-xs-5">   
+  	    <div class="col-xs-5">
              <h3><%= user.name %></h3>
              <p><%= user.introduction %></p>
              <p><%= user.like_team %></p>
@@ -17,28 +17,28 @@
                   <% if user.id == current_user.id %>
                   <td style ="border-style: none;"><%= link_to edit_user_path(user), class: 'btn btn-info', method: :get do %>
                     <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>プロフィール編集
-                  <% end %>  
+                  <% end %>
                   </td>
                     <% else %>
-                  <td style ="border-style: none;">  
+                  <td style ="border-style: none;">
                     <%= render 'relationships/follow_button', user: @user %>
                   </td>
                   <% end %>
                 </tr>
                 <tr>
-                  <td>投稿数</td>  
+                  <td>投稿数</td>
                   <td><%= user.baseballs.count %></td>
                 </tr>
                 <tr>
                   <td>フォロー数</td>
                   <td><%= link_to user.followings.count,follows_user_path(user) %></td>
-                </tr>  
+                </tr>
                 <tr>
                   <td>フォロワー数</td>
                   <td><%= link_to user.followers.count,followers_user_path(user) %></td>
-                </tr>    
+                </tr>
               </tbody>
-             </table>     
+             </table>
         </div>
-       </div> 
+       </div>
     </div>

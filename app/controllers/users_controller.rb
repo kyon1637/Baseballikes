@@ -32,22 +32,22 @@ class UsersController < ApplicationController
 	end
 
 	def favorites
-		@user = User.find_by(id: params[:id])
-		@favorites = Favorite.where(user_id: @user.id)
-	end	
+		  @user = User.find_by(id: params[:id])
+		  @favorites = Favorite.where(user_id: @user.id)
+	end
 
-    def follows
-        @user = User.find(params[:id])
-    end
+  def follows
+      @user = User.find(params[:id])
+  end
 
-    def followers
-        @user = User.find(params[:id])
-    end
-	
+  def followers
+      @user = User.find(params[:id])
+  end
+
 	def edit
 	    @user = User.find(params[:id])
 	end
-	
+
 	def update
 	    @user = User.find(params[:id])
 	    if  @user.update(user_params)
@@ -55,17 +55,17 @@ class UsersController < ApplicationController
 	    else
 	        render :edit
 	    end
-	end 
+	end
 
 	def search
 	    @user_or_baseball = params[:option]
         if    @user_or_baseball == "1"
               @users = User.search(params[:search], @user_or_baseball)
-        else	  
+        else
               @baseballs = Baseball.search(params[:search], @user_or_baseball)
         end
-	end       	
-	           	
+	end
+
 private
     def user_params
   	    params.require(:user).permit(:name, :profile_image, :introduction, :like_team)
@@ -76,5 +76,5 @@ private
        if current_user != @user
        	redirect_to user_path(current_user.id)
        end
-    end   
+    end
 end

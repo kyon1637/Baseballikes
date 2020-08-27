@@ -5,13 +5,13 @@
     <div class="new_baseball1">
 		    <%= f.label :baseball_image, "画像" %>
 	      <%= f.attachment_field :baseball_image %>
-  	    <%= f.label :title, "タイトル" %>	
+  	    <%= f.label :title, "タイトル" %>
 	      <%= f.text_field :title,class:"form-control" %>
 	      <%= f.label :body, "内容" %>
 	      <%= f.text_area :body,class:"form-control" %>
 	      <%= f.label :tag_list,"タグを,区切りで入力" %>
-        <%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control", placeholder:"例 aa,aa" %> 
+        <%= f.text_field :tag_list, value: @baseball.tag_list.join(","), class:"form-control", placeholder:"例 aa,aa" %>
         <%= f.submit "投稿する", class: "btn btn-primary" %>
     </div>
-    <% end %>       
-</div>      
+    <% end %>
+</div>

@@ -1,6 +1,7 @@
-class BaseballComment < ApplicationRecord
+# frozen_string_literal: true
 
-	belongs_to :user
-	belongs_to :baseball
-	validates :comment, presence: true
+class BaseballComment < ApplicationRecord
+  belongs_to :user
+  belongs_to :baseball
+  validates :comment, presence: true
 end

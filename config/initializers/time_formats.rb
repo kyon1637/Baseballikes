@@ -1,3 +1,5 @@
-#time_formats.rb
+# frozen_string_literal: true
+
+# time_formats.rb
 
 Time::DATE_FORMATS[:datetime] = '%Y-%m-%d %H:%M'

@@ -31,6 +31,9 @@ body{
 .new_baseball1{
 	margin: 0 auto;
 }
+.new_baseball2{
+	margin: 0 30%;
+}
 .edit_baseball{
 	display: flex;
 }
@@ -51,7 +54,7 @@ header{
 			padding-top: 10px;
 			font-family: cursive;
 		}
-	}	
+	}
 }
 .row{
 	margin-top: 10px;
@@ -135,17 +138,17 @@ h1{
 	color: black;
 	margin-top: 10px;
 }
-.pagination>li>a {          
-  border: none;     
+.pagination>li>a {
+  border: none;
   color: #696969;
-  border-radius: 15px;  
-}
-.pagination>.active>a {     
-  background: #93c9ff;     
   border-radius: 15px;
 }
-.pagination>li>a:hover {        
-  border-radius: 15px;   
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+.pagination>li>a:hover {
+  border-radius: 15px;
 }
 .alert-warning{
 	color: red;
@@ -156,7 +159,7 @@ h1{
 .notifications {
   color: white;
   text-align: center;
-  margin-top: 23px;  
+  margin-top: 23px;
 }
 .notice {
   background-color: lightBlue;

@@ -2,7 +2,7 @@
    <h2>新規投稿</h2>
     <%= form_for(@baseball) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
-    <div class="new_baseball1">
+    <div class="new_baseball2">
 		    <%= f.label :baseball_image, "画像" %>
 	      <%= f.attachment_field :baseball_image %>
   	    <%= f.label :title, "タイトル" %>
